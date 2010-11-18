@@ -2,12 +2,8 @@
 #                 classname: asrt / meth =  ratio%
 #             Rini::IniFile:    0 /    9 =   0.00%
 
-begin
-  require 'inifile'
-rescue LoadError
-  require 'rubygems'
-  require 'inifile'
-end
+$:.unshift(File.expand_path(File.dirname(__FILE__) + "/../lib"))
+require "inifile"
 
 begin; require 'turn'; rescue LoadError; end
 require 'test/unit' unless defined? $ZENTEST and $ZENTEST
